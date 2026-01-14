@@ -66,90 +66,132 @@ EXAMPLE :  var name = "John Doe"
 
 //! PRIMITIVE DATA TYPES EXAMPLES
 
-var n1 = 10.987;
-console.log(n1); // 10.987
-console.log(typeof n1); // number
+// var n1 = 10.987;
+// console.log(n1); // 10.987
+// console.log(typeof n1); // number
 
-var n2 = "Hello";
-var n3 = "World";
-console.log(n2, n3); // Hello World
-console.log(typeof n3); // string
+// var n2 = "Hello";
+// var n3 = "World";
+// console.log(n2, n3); // Hello World
+// console.log(typeof n3); // string
 
-// `` using backticks we can write multi-line strings and we can use string interpolation using ${}
-var n4 = `Hey There !!! 
-Lets go to javascript ${n3} `;
-console.log(n4);
-console.log(typeof n4);
+// // `` using backticks we can write multi-line strings and we can use string interpolation using ${}
+// var n4 = `Hey There !!!
+// Lets go to javascript ${n3} `;
+// console.log(n4);
+// console.log(typeof n4);
 
-var n5 = true;
-console.log(n5); // true
-console.log(typeof n5); // boolean
+// var n5 = true;
+// console.log(n5); // true
+// console.log(typeof n5); // boolean
 
-console.log(typeof typeof n5); // string
+// console.log(typeof typeof n5); // string
 
-var n6 = undefined;
-console.log(n6); // undefined
-console.log(typeof n6); // undefined
+// var n6 = undefined;
+// console.log(n6); // undefined
+// console.log(typeof n6); // undefined
 
-var n7 = null;
-console.log(n7); // null
-console.log(typeof n7); // object
+// var n7 = null;
+// console.log(n7); // null
+// console.log(typeof n7); // object
 
-var n8 = 9n;
-console.log(n8); // 9n
-console.log(typeof n8); // bigint
+// var n8 = 9n;
+// console.log(n8); // 9n
+// console.log(typeof n8); // bigint
 
-var n9 = Symbol("hello");
-var n10 = Symbol("hello");
+// var n9 = Symbol("hello");
+// var n10 = Symbol("hello");
 
-console.log(n9); // Symbol(hello)
-console.log(n10); // Symbol(hello)
+// console.log(n9); // Symbol(hello)
+// console.log(n10); // Symbol(hello)
 
-console.log(n9 == n10); // false
-console.log(n9 === n10); // false
+// console.log(n9 == n10); // false
+// console.log(n9 === n10); // false
 
-//! STRICTLY AND LOOSLY COMPARISION
-var n11 = 10;
-var n12 = "10";
-console.log(n11 == n12); // true
-console.log(n11 === n12); // false
+// //! STRICTLY AND LOOSLY COMPARISION
+// var n11 = 10;
+// var n12 = "10";
+// console.log(n11 == n12); // true
+// console.log(n11 === n12); // false
 
-//! VAR , LET AND CONST DIFFERENCE
+// //! VAR , LET AND CONST DIFFERENCE
 
-var a;
-console.log(a); // ud
-a = 10;
-console.log(a); // 10
-var b = 20
-console.log(b); // 20
-var b;
-console.log(b); // 20
-b = 30
-console.log(b); // 30
-var a = 40
-console.log(a); // 40
+// var a;
+// console.log(a); // ud
+// a = 10;
+// console.log(a); // 10
+// var b = 20
+// console.log(b); // 20
+// var b;
+// console.log(b); // 20
+// b = 30
+// console.log(b); // 30
+// var a = 40
+// console.log(a); // 40
 
+// let c;
+// console.log(c); // ud
+// c = 100
+// console.log(c); // 100
+// let d = 200
+// console.log(d); // 200
+// // let c ;//! Cannot redeclare
+// d = 300
+// console.log(d); // 300
+// // let d = 400 //! Cannot redeclare and reinitialize
 
+// //! declare and initialize at same time
+// const e = 1000
+// console.log(e); // 1000
 
+//! HOISTING : moving declaration part at the top of the original code internally
 
+// var a = undefined <--- hoisting happens internally
+// console.log(a);
+// var a = 10
+// console.log(a); // 10
 
+//! TDZ (TEMPORAL DEAD ZONE) : the time period between accessing let and const variable before declaration
 
-let c;
-console.log(c); // ud
-c = 100
-console.log(c); // 100
-let d = 200
-console.log(d); // 200
-// let c ;//! Cannot redeclare
-d = 300
-console.log(d); // 300
-// let d = 400 //! Cannot redeclare and reinitialize
+// let b
+// console.log(b);//! error -> Cannot access 'b' before initialization
+// let b = 20
+// console.log(b); // 20
 
+// let c  <--- hoisted but value will be unavailable
+// console.log(c); //! error -> Cannot access 'c' before initialization
+// let c;
+// console.log(c);// ud
 
-//! declare and initialize at same time
-const e = 1000
-console.log(e); // 1000
+//! GEC (GLOBAL EXECUTION CONTEXT)
+// debugger;
+// console.log("Start");
+// console.log(a);
+// var a = 10
+// console.log(a);
+// let b;
+// console.log(b);
+// b = 20
+// const c = 100
+// console.log(c);
+// console.log("End");
 
+// ! TYPES OF VARIABLES AND ITS SCOPE
 
+// ! 1) GLOBAL VARIABLES : can be accessed anywhere throughout the code
+var a = 10; // GLOBAL SCOPE <- DUE TO HOISTING
+let b = 20;  // SCRIPT SCOPE <- DUE TO TDZ
+const c = 30; // SCRIPT SCOPE <- DUE TO TDZ
 
+if (100 > 2) {
+  console.log(a, b, c);
+}
 
+for (let i = 0; i < 5; i++) {
+  console.log(a, b, c );
+}
+
+function demo1() {
+  console.log(a, b, c);
+}
+demo1();
