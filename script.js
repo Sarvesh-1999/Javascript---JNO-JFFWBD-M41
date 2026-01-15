@@ -179,19 +179,84 @@ EXAMPLE :  var name = "John Doe"
 // ! TYPES OF VARIABLES AND ITS SCOPE
 
 // ! 1) GLOBAL VARIABLES : can be accessed anywhere throughout the code
-var a = 10; // GLOBAL SCOPE <- DUE TO HOISTING
-let b = 20;  // SCRIPT SCOPE <- DUE TO TDZ
-const c = 30; // SCRIPT SCOPE <- DUE TO TDZ
+// var a = 10; // GLOBAL SCOPE <- DUE TO HOISTING
+// let b = 20;  // SCRIPT SCOPE <- DUE TO TDZ
+// const c = 30; // SCRIPT SCOPE <- DUE TO TDZ
 
-if (100 > 2) {
-  console.log(a, b, c);
-}
+// if (100 > 2) {
+//   console.log(a, b, c);
+// }
 
-for (let i = 0; i < 5; i++) {
-  console.log(a, b, c );
-}
+// for (let i = 0; i < 5; i++) {
+//   console.log(a, b, c );
+// }
 
-function demo1() {
-  console.log(a, b, c);
+// function demo1() {
+//   console.log(a, b, c);
+// }
+// demo1();
+
+//! 2) LOCAL VARIABLES : Variables which can be accessced within a block.
+// if (100 > 2) {
+//   var x = 10; // GLOBAL VARIABLE - GLOBAL SCOPE
+//   let y = 20; // LOCAL VARIABLE - BLOCK SCOPE
+//   const z = 30; // LOCAL VARIABLE - BLOCK SCOPE
+// }
+// console.log(x); // 10
+// // console.log(y); //! ReferenceError: y is not defined
+
+// for (let i = 0; i < 5; i++) {}
+
+//! NOTE : var variables are also known as function scope variable because it acts like local variable within a function
+
+// function demo2() {
+//   var m = 100; // LOCAL VARIABLE - LOCAL SCOPE
+//   let n = 200; // LOCAL VARIABLE - LOCAL SCOPE
+//   const o = 300; // LOCAL VARIABLE - LOCAL SCOPE
+// }
+// demo2();
+// console.log(m); //!  ReferenceError: m is not defined
+
+//! FUNCTIONS
+
+// ! 1) NAMED FUNCTION : a function which has name
+// ! NOTE : only Named Function can be called before declaration due to function hoisting
+
+// debugger
+// greet()
+
+// function greet() {
+//   console.log("Welcome");
+// }
+
+// greet()
+
+// console.log("Start");
+// var a;
+// console.log(a);
+// fun();
+// a = 10;
+// console.log(fun);
+// function fun() {
+//   var str = "Hello";
+//   console.log(str);
+// }
+// console.log(fun);
+// fun();
+// console.log("End");
+
+console.log("start");
+console.log(student);
+var s1 = 100;
+function student() {
+  console.log("I am student");
 }
-demo1();
+console.log(trainer);
+let s2 = 200;
+console.log(s2);
+function trainer() {
+  console.log("I am trainer");
+}
+student();
+trainer();
+console.log("End");
