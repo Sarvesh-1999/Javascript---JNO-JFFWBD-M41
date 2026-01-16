@@ -231,6 +231,7 @@ EXAMPLE :  var name = "John Doe"
 
 // greet()
 
+//! GEC
 // console.log("Start");
 // var a;
 // console.log(a);
@@ -245,18 +246,85 @@ EXAMPLE :  var name = "John Doe"
 // fun();
 // console.log("End");
 
-console.log("start");
-console.log(student);
-var s1 = 100;
-function student() {
-  console.log("I am student");
+// console.log("start");
+// console.log(student);
+// var s1 = 100;
+// function student() {
+//   console.log("I am student");
+// }
+// console.log(trainer);
+// let s2 = 200;
+// console.log(s2);
+// function trainer() {
+//   console.log("I am trainer");
+// }
+// student();
+// trainer();
+// console.log("End");
+
+//! 2) ANONYMOUS FUNCTION : function without name
+// function () {
+//   console.log("I am Anonymous function");
+// }
+
+//! 3) FUNCTION EXPRESSION : its is used to call/invoke anonymous function
+
+// console.log(f1);// ud
+// // f1()
+
+// var f1 = function () {
+//   console.log("I am Anonymous function called by using Function expression");
+// };
+// console.log(f1);// it will print function with body
+// f1() // it will call the function
+
+//! 4) PARAMETERIZED FUNCTION
+// function sum(n1 = 0, n2 = 0) {
+//   console.log(n1 + n2);
+// }
+// sum(10, 20);
+// sum();
+
+// function demo1(n1, n2, n3, n4, n5) {
+//   console.log(n1, n2, n3, n4, n5);
+//   console.log(arguments);
+// }
+// // demo1(10, 20, 30, 40, 50);
+// // demo1(10, 20);
+// demo1(10, 20, 30, 40, 50, 60, 70, 80, 90);
+
+// function printFullName(firstName, lastName , age) {
+//   console.log(`My Name is ${firstName} ${lastName} ${age}`);
+//   console.log("My age is", age);
+
+// }
+// let firstNameInput = prompt("Enter FirstName");
+// let lastNameInput = prompt("Enter LastName");
+// let ageInput = parseInt(prompt("Enter Age"));
+
+// printFullName(firstNameInput, lastNameInput , ageInput);
+
+//! 5) RETURN TYPE FUNCTION
+// function getEmail(fname, lname) {
+//   let fullName = `${fname} ${lname}`;
+//   let email = `${fname}.${lname}@gmail.com`;
+
+//   return [fullName, email];
+// }
+
+// let value = getEmail("john", "doe");
+// console.log(value[0]);
+// console.log(value[1]);
+
+//! 6) NESTED FUNCTION
+function parent() {
+  console.log("I am Parent");
+
+  function child() {
+    console.log("I am Child");
+  }
+
+  child();
 }
-console.log(trainer);
-let s2 = 200;
-console.log(s2);
-function trainer() {
-  console.log("I am trainer");
-}
-student();
-trainer();
-console.log("End");
+
+parent();
