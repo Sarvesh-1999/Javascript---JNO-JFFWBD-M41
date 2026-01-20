@@ -394,33 +394,149 @@ EXAMPLE :  var name = "John Doe"
 // Demo1()()(); // <--- JS CURRYING
 
 //! 8) ARROW FUNCTION
-let a1 = () => {
-  console.log("I am Arrow function 1");
+// let a1 = () => {
+//   console.log("I am Arrow function 1");
+// };
+// a1();
+
+// // if no parameter, we can replace () with _
+// let a2 = (_) => {
+//   console.log("I am Arrow function 2");
+// };
+// a2();
+
+// // if having only one parameter, () is not mandatory
+// let a3 = (n1) => {
+//   console.log("I am Arrow function 3", n1);
+// };
+// a3(100);
+
+// // if having only one line of code {} is not mandatory
+// let a4 = () => console.log("I am Arrow function 4");
+// a4();
+
+// // explicit return, {} and "return" keyword is mandatory
+// let a5 = (n1, n2) => {
+//   return n1 + n2;
+// };
+// console.log(a5(10, 20));
+
+// // implicit return , {} and "return" keyword is not required
+// let a6 = (n1, n2) => n1 + n2;
+// console.log(a6(5, 10));
+
+//! 9) IMMEDIATLY INVOCKED FUNCTION EXPRESSION ( IIFE )
+// let x = (function () {
+//   console.log("I am IIFE");
+//   return "Hii";
+// })();
+// console.log(x); // Hii
+
+// function demo() {
+//   return "Hi";
+// }
+// let val = demo();
+
+//! 10) CONSTRUCTOR FUNCTION : used to create objects
+
+//! OBJECTS : it is used to store multiple data in the form of key and value pairs
+// There are 3 ways to create object:-
+// //! 1) Object literals
+// const obj1 = { id: 1, fname: "John" };
+// console.log(obj1);
+
+// //! 2) Object Constructor
+// const obj2 = new Object({ id: 2, fname: "Jane" });
+// console.log(obj2);
+
+// //! 3) Constructor Function
+// function Student(id, firstName) {
+//   this.id = id;
+//   this.firstName = firstName;
+// }
+// let s1 = new Student(1, "James");
+// console.log(s1);
+// let s2 = new Student(2, "Clark");
+// console.log(s2);
+
+//! CRUD WITH OBJECTS
+
+// //! 1) CREATE
+// const obj = {
+//   id: 1,
+//   fname: "John",
+//   lname: "Doe",
+//   age: 25,
+//   company: "NA",
+// };
+// console.log(obj);
+
+// //! 2) READ
+// // there are 2 ways to read
+// // 1) using dot operator
+
+// console.log(obj.fname); // John
+// console.log(obj.degree); // ud
+
+// // 2) using square brackets
+
+// let x = "lname";
+// console.log(obj["age"]); // 25
+// console.log(obj[x]); // Doe
+
+// // for in loop
+// for (let i in obj) {
+//   console.log(i, obj[i]);
+// }
+
+// //! UPDATE
+// obj.company = "TCS"
+// console.log(obj);
+
+// //! ADD NEW KEY
+// obj.salary = 60000
+// console.log(obj);
+
+// //! DELETE
+// delete obj.salary
+// console.log(obj);
+
+//! OBJECT METHODS
+let obj = {
+  id: 1,
+  ename: "John Doe",
 };
-a1();
 
-// if no parameter, we can replace () with _
-let a2 = (_) => {
-  console.log("I am Arrow function 2");
+//! 1) Object.keys()
+let keys = Object.keys(obj);
+console.log(keys); // ["id" , "ename"]
+
+//! 2) Object.values()
+let values = Object.values(obj);
+console.log(values); // [1 , "John Doe"]
+
+//! 3) Object.entries()
+let keyAndValue = Object.entries(obj);
+console.log(keyAndValue); // [ ["id" , 1]  , ["ename" , "John Doe"]]
+
+//! 4) Object.fromEntries()
+let newObj = Object.fromEntries(keyAndValue);
+console.log(newObj); // {id: 1, ename: 'John Doe'}
+
+let obj2 = {
+  id: 2,
+  name: {
+    firstName: "Jane",
+    lastName: "Doe",
+  },
+  hobbies: ["coding", "singing", "dancing"],
+  address: {
+    city: "Noida",
+    state: "UP",
+    pin: 876541,
+  },
 };
-a2();
 
-// if having only one parameter, () is not mandatory
-let a3 = (n1) => {
-  console.log("I am Arrow function 3", n1);
-};
-a3(100);
-
-// if having only one line of code {} is not mandatory
-let a4 = () => console.log("I am Arrow function 4");
-a4();
-
-// explicit return, {} and "return" keyword is mandatory
-let a5 = (n1, n2) => {
-  return n1 + n2;
-};
-console.log(a5(10, 20));
-
-// implicit return , {} and "return" keyword is not required
-let a6 = (n1, n2) => n1 + n2;
-console.log(a6(5, 10));
+console.log(obj2.name.firstName); //  Jane
+console.log(obj2.hobbies[0]); // coding
+console.log(obj2.address.state); // UP
