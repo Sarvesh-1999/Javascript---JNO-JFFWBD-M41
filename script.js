@@ -502,30 +502,63 @@ EXAMPLE :  var name = "John Doe"
 // console.log(obj);
 
 //! OBJECT METHODS
-let obj = {
-  id: 1,
-  ename: "John Doe",
-};
+// let obj = {
+//   id: 1,
+//   ename: "John Doe",
+// };
 
-//! 1) Object.keys()
-let keys = Object.keys(obj);
-console.log(keys); // ["id" , "ename"]
+// //! 1) Object.keys()
+// let keys = Object.keys(obj);
+// console.log(keys); // ["id" , "ename"]
 
-//! 2) Object.values()
-let values = Object.values(obj);
-console.log(values); // [1 , "John Doe"]
+// //! 2) Object.values()
+// let values = Object.values(obj);
+// console.log(values); // [1 , "John Doe"]
 
-//! 3) Object.entries()
-let keyAndValue = Object.entries(obj);
-console.log(keyAndValue); // [ ["id" , 1]  , ["ename" , "John Doe"]]
+// //! 3) Object.entries()
+// let keyAndValue = Object.entries(obj);
+// console.log(keyAndValue); // [ ["id" , 1]  , ["ename" , "John Doe"]]
 
-//! 4) Object.fromEntries()
-let newObj = Object.fromEntries(keyAndValue);
-console.log(newObj); // {id: 1, ename: 'John Doe'}
+// //! 4) Object.fromEntries()
+// let newObj = Object.fromEntries(keyAndValue);
+// console.log(newObj); // {id: 1, ename: 'John Doe'}
+
+// let obj2 = {
+//   id: 2,
+//   name: {
+//     firstName: "Jane",
+//     lastName: "Doe",
+//   },
+//   hobbies: ["coding", "singing", "dancing"],
+//   address: {
+//     city: "Noida",
+//     state: "UP",
+//     pin: 876541,
+//   },
+// };
+
+// console.log(obj2.name.firstName); //  Jane
+// console.log(obj2.hobbies[0]); // coding
+// console.log(obj2.address.state); // UP
+
+// ! OBJECT DESTRUCTURING
+
+// let obj1 = {
+//   id: 1,
+//   fname: "John",
+//   lname: "Doe",
+// };
+
+// let { fname: firstName = "NA", lname, id, salary = 0 } = obj1;
+
+// console.log(firstName);
+// console.log(lname);
+// console.log(id);
+// console.log(salary);
 
 let obj2 = {
   id: 2,
-  name: {
+  Name: {
     firstName: "Jane",
     lastName: "Doe",
   },
@@ -535,8 +568,66 @@ let obj2 = {
     state: "UP",
     pin: 876541,
   },
+  details: {
+    id: "JaneQSP1",
+    course: "Mern Stack",
+  },
 };
 
-console.log(obj2.name.firstName); //  Jane
-console.log(obj2.hobbies[0]); // coding
-console.log(obj2.address.state); // UP
+// id,firstName,coding,city,id,course
+
+let {
+  id,
+  Name: { firstName },
+  hobbies: [, , h3],
+  address: { city },
+  details: { id: detailID, course },
+} = obj2;
+
+console.log(id, firstName, h3, city, detailID, course);
+
+//! ARRAY DESTRUCTURING
+let arr = [10, 20, 30, 40, 50];
+let [, n1, , n2] = arr;
+console.log(n1, n2);
+
+const user = {
+  id: 1,
+  name: "Leanne Graham",
+  username: "Bret",
+  email: "Sincere@april.biz",
+  address: {
+    street: "Kulas Light",
+    suite: "Apt. 556",
+    city: "Gwenborough",
+    zipcode: "92998-3874",
+    geo: {
+      lat: "-37.3159",
+      lng: "81.1496",
+    },
+  },
+  phone: "1-770-736-8031 x56442",
+  website: "hildegard.org",
+  company: {
+    name: "Romaguera-Crona",
+    catchPhrase: "Multi-layered client-server neural-net",
+    bs: "harness real-time e-markets",
+  },
+};
+
+// name ,username ,street ,zipcode ,lat , lng,companyName ,
+
+let {
+  name,
+  username,
+  address: {
+    street,
+    zipcode,
+    geo: { lat, lng },
+  },
+  company: { name: companyName },
+} = user;
+
+
+console.log(window);
+
