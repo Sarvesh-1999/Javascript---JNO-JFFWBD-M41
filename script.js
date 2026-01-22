@@ -556,78 +556,145 @@ EXAMPLE :  var name = "John Doe"
 // console.log(id);
 // console.log(salary);
 
-let obj2 = {
-  id: 2,
-  Name: {
-    firstName: "Jane",
-    lastName: "Doe",
-  },
-  hobbies: ["coding", "singing", "dancing"],
-  address: {
-    city: "Noida",
-    state: "UP",
-    pin: 876541,
-  },
-  details: {
-    id: "JaneQSP1",
-    course: "Mern Stack",
-  },
-};
+// let obj2 = {
+//   id: 2,
+//   Name: {
+//     firstName: "Jane",
+//     lastName: "Doe",
+//   },
+//   hobbies: ["coding", "singing", "dancing"],
+//   address: {
+//     city: "Noida",
+//     state: "UP",
+//     pin: 876541,
+//   },
+//   details: {
+//     id: "JaneQSP1",
+//     course: "Mern Stack",
+//   },
+// };
 
 // id,firstName,coding,city,id,course
 
-let {
-  id,
-  Name: { firstName },
-  hobbies: [, , h3],
-  address: { city },
-  details: { id: detailID, course },
-} = obj2;
+// let {
+//   id,
+//   Name: { firstName },
+//   hobbies: [, , h3],
+//   address: { city },
+//   details: { id: detailID, course },
+// } = obj2;
 
-console.log(id, firstName, h3, city, detailID, course);
+// console.log(id, firstName, h3, city, detailID, course);
 
-//! ARRAY DESTRUCTURING
-let arr = [10, 20, 30, 40, 50];
-let [, n1, , n2] = arr;
-console.log(n1, n2);
+// //! ARRAY DESTRUCTURING
+// let arr = [10, 20, 30, 40, 50];
+// let [, n1, , n2] = arr;
+// console.log(n1, n2);
 
-const user = {
-  id: 1,
-  name: "Leanne Graham",
-  username: "Bret",
-  email: "Sincere@april.biz",
-  address: {
-    street: "Kulas Light",
-    suite: "Apt. 556",
-    city: "Gwenborough",
-    zipcode: "92998-3874",
-    geo: {
-      lat: "-37.3159",
-      lng: "81.1496",
-    },
-  },
-  phone: "1-770-736-8031 x56442",
-  website: "hildegard.org",
-  company: {
-    name: "Romaguera-Crona",
-    catchPhrase: "Multi-layered client-server neural-net",
-    bs: "harness real-time e-markets",
-  },
-};
+// const user = {
+//   id: 1,
+//   name: "Leanne Graham",
+//   username: "Bret",
+//   email: "Sincere@april.biz",
+//   address: {
+//     street: "Kulas Light",
+//     suite: "Apt. 556",
+//     city: "Gwenborough",
+//     zipcode: "92998-3874",
+//     geo: {
+//       lat: "-37.3159",
+//       lng: "81.1496",
+//     },
+//   },
+//   phone: "1-770-736-8031 x56442",
+//   website: "hildegard.org",
+//   company: {
+//     name: "Romaguera-Crona",
+//     catchPhrase: "Multi-layered client-server neural-net",
+//     bs: "harness real-time e-markets",
+//   },
+// };
 
 // name ,username ,street ,zipcode ,lat , lng,companyName ,
 
-let {
-  name,
-  username,
-  address: {
-    street,
-    zipcode,
-    geo: { lat, lng },
-  },
-  company: { name: companyName },
-} = user;
+// let {
+//   name,
+//   username,
+//   address: {
+//     street,
+//     zipcode,
+//     geo: { lat, lng },
+//   },
+//   company: { name: companyName },
+// } = user;
 
+//! "this" keyword
 
-console.log(window);
+// console.log(window); // GLOBAL OBJECT
+// console.log(this); // POINTS TO WINDOW OBJECT
 
+// //! HOW TO CREATE YOUR OWN METHOD
+// //! NOTE : DONT USE ARROW FUNC TO CREATE METHOD BCOZ "this" KEYWORD REFERS TO WINDOW OBJECT
+
+// let student = {
+//   id: 1,
+//   fname: "john",
+//   lname: "doe",
+//   getFullName: function () {
+//     console.log(`${this.fname} ${this.lname}`);
+//   },
+//   getEmail() {
+//     console.log(`${this.fname}.${this.lname}@gmail.com`);
+//   },
+// };
+
+// student.getFullName();
+// student.getEmail();
+
+//! call() , apply() and bind()
+
+function getFullName() {
+  return `${this.firstName} ${this.lastName}`;
+}
+
+function getCourseDetails(sub1, sub2) {
+  return `${this.course} includes ${sub1} ${sub2}`;
+}
+
+let user1 = {
+  id: 1,
+  firstName: "Jane",
+  lastName: "Doe",
+  course: "Mern Stack",
+};
+
+let user2 = {
+  id: 2,
+  firstName: "James",
+  lastName: "Carry",
+  course: "Java Full Stack",
+};
+
+console.log(user1);
+console.log(user2);
+
+//! call() : immediately calls the function
+let fullName1 = getFullName.call(user1);
+console.log(fullName1);
+
+let courseDetails1 = getCourseDetails.call(user1, "JS", "NodeJS");
+console.log(courseDetails1);
+
+//! apply() : immediately calls the function
+let fullName2 = getFullName.apply(user2);
+console.log(fullName2);
+
+let courseDetails2 = getCourseDetails.apply(user2, ["Java", "SpringBoot"]);
+console.log(courseDetails2);
+
+//! bind() : returns bounded function which can be called later on
+let boundedGetFullName = getFullName.bind(user1);
+console.log(boundedGetFullName());
+
+let boundedCouseDetails = getCourseDetails.bind(user1);
+console.log(boundedCouseDetails("HTML", "NODE JS"));
