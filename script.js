@@ -653,48 +653,128 @@ EXAMPLE :  var name = "John Doe"
 
 //! call() , apply() and bind()
 
-function getFullName() {
-  return `${this.firstName} ${this.lastName}`;
-}
+// function getFullName() {
+//   return `${this.firstName} ${this.lastName}`;
+// }
 
-function getCourseDetails(sub1, sub2) {
-  return `${this.course} includes ${sub1} ${sub2}`;
-}
+// function getCourseDetails(sub1, sub2) {
+//   return `${this.course} includes ${sub1} ${sub2}`;
+// }
 
+// let user1 = {
+//   id: 1,
+//   firstName: "Jane",
+//   lastName: "Doe",
+//   course: "Mern Stack",
+// };
+
+// let user2 = {
+//   id: 2,
+//   firstName: "James",
+//   lastName: "Carry",
+//   course: "Java Full Stack",
+// };
+
+// console.log(user1);
+// console.log(user2);
+
+// //! call() : immediately calls the function
+// let fullName1 = getFullName.call(user1);
+// console.log(fullName1);
+
+// let courseDetails1 = getCourseDetails.call(user1, "JS", "NodeJS");
+// console.log(courseDetails1);
+
+// //! apply() : immediately calls the function
+// let fullName2 = getFullName.apply(user2);
+// console.log(fullName2);
+
+// let courseDetails2 = getCourseDetails.apply(user2, ["Java", "SpringBoot"]);
+// console.log(courseDetails2);
+
+// //! bind() : returns bounded function which can be called later on
+// let boundedGetFullName = getFullName.bind(user1);
+// console.log(boundedGetFullName());
+
+// let boundedCouseDetails = getCourseDetails.bind(user1);
+// console.log(boundedCouseDetails("HTML", "NODE JS"));
+
+//! SCOPES REVISION
+
+//!  - GLOBAL SCOPE AND SCRIPT SCOPE :
+//  - WHENEVER WE DECLARE GLOBAL VARIABLES GLOBAL SCOPE AND SCRIPT SCOPE CREATES
+//  - IN GLOBAL SCOPE WE CAN SEE "var" VARIABLES AND FUNCTION DECALRATIONS
+//  - IN SCRIPT SCOPE WE CAN SEE "let" and "const" VARIABLES, DUE TO TDZ
+
+//! - BLOCK SCOPE :
+//  - WHENEVER WE DECLARE "let" AND "const" VARIABLES INSIDE CONDITIONAL OR LOOPING STATEMENT THOSE VARIABLES WILL ACT AS LOCAL VARIABLES AND HAVING BLOCK SCOPE
+//! - NOTE: "var" VARIABLES WILL ACT AS GLOBAL VARIABLE AND HAVING GLOBAL SCOPE WITHIN CONDITIONAL OR LOOPING STATEMENT
+
+//! - LOCAL SCOPE :
+//  - WHENEVER WE DECLARE "var", "let" OR "const" VARIABLES INSIDE A FUNCTION , IT WILL ACT AS LOCAL VARIABLES HAVING LOCAL SCOPE
+
+//! - FUNCTION SCOPE :
+//  - "var" VARIABLES ARE KNOWN AS FUNCTION SCOPE VARIABLES BECOZ IT ACTS LIKE LOCAL VARIABLE INSIDE A FUNCTION
+
+//! JAVASCRIPT OBJECT NOTATION (JSON)
 let user1 = {
   id: 1,
-  firstName: "Jane",
-  lastName: "Doe",
-  course: "Mern Stack",
+  fname: "John",
+  lname: "Doe",
 };
 
-let user2 = {
-  id: 2,
-  firstName: "James",
-  lastName: "Carry",
-  course: "Java Full Stack",
-};
+function storeDataInLocalStorage() {
+  let jsonData = JSON.stringify(user1); // JS TO JSON
+  localStorage.setItem("usersData", jsonData);
+}
 
-console.log(user1);
-console.log(user2);
+function getDataFromLocalStorage() {
+  let data = localStorage.getItem("usersData");
+  let userObject = JSON.parse(data); // JSON TO JS
+  console.log(userObject);
+  document.writeln(`<em>${userObject.fname}</em>`);
+}
 
-//! call() : immediately calls the function
-let fullName1 = getFullName.call(user1);
-console.log(fullName1);
+function removeSingleDataFromLocalStorage() {
+  localStorage.removeItem("demo1");
+}
 
-let courseDetails1 = getCourseDetails.call(user1, "JS", "NodeJS");
-console.log(courseDetails1);
+function clearDataFromLocalStorage() {
+  localStorage.clear();
+}
 
-//! apply() : immediately calls the function
-let fullName2 = getFullName.apply(user2);
-console.log(fullName2);
+//! ARRAYS : hetrogenous in nature
 
-let courseDetails2 = getCourseDetails.apply(user2, ["Java", "SpringBoot"]);
-console.log(courseDetails2);
+// // 1) Array Literals
+// let arr1 = [10, true, "Hello World", () => {}, null, 1n, undefined];
+// console.log(arr1);
 
-//! bind() : returns bounded function which can be called later on
-let boundedGetFullName = getFullName.bind(user1);
-console.log(boundedGetFullName());
+// // 2) Array Constructor
+// let arr2 = new Array(10, false, "Bye", function () {});
+// console.log(arr2);
 
-let boundedCouseDetails = getCourseDetails.bind(user1);
-console.log(boundedCouseDetails("HTML", "NODE JS"));
+//! ARRAY METHODS
+let arr1 = [10, 20, 30, 40];
+console.log(arr1); // [10,20,30,40]
+
+//! array.push() : Appends new elements to the end of an array, and returns the new length of the array.
+
+let newLength = arr1.push(50, 60, 70);
+console.log(arr1); // [10,20,30,40,50, 60, 70]
+console.log(newLength); // 7 <-- new length of arr1
+
+//! array.pop() : Removes the last element from an array and returns it. If the array is empty, undefined is returned and the array is not modified.
+
+let retrunVal = arr1.pop();
+console.log(arr1); // [10,20,30,40,50, 60]
+console.log(retrunVal); // 70
+
+//! array.unshift()
+let newLength2 = arr1.unshift("Hello", 100);
+console.log(arr1); // ["Hello",100,10,20,30,40,50, 60]
+console.log(newLength2); // 8
+
+//! array.shift()
+let retrunVal2 = arr1.shift();
+console.log(arr1); // [100,10,20,30,40,50, 60]
+console.log(retrunVal2); // "Hello"
