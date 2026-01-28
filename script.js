@@ -832,7 +832,16 @@ function clearDataFromLocalStorage() {
 // console.log(arr8); // [10, 31, 38, 49, 80, 615]
 
 //! concat()
-let arr9 = [10, 20, 30];
-let arr10 = [40, 50, 60];
-let concatinatedArr = arr9.concat(arr10);
-console.log(concatinatedArr); // [10, 20, 30, 40, 50, 60]
+// let arr9 = [10, 20, 30];
+// let arr10 = [40, 50, 60];
+// let concatinatedArr = arr9.concat(arr10);
+// console.log(concatinatedArr); // [10, 20, 30, 40, 50, 60]
+
+let arr = [1, 2, 3, 4, 5, 6];
+for (let index = -2; index < arr.length; index++) {
+  console.log(index , arr[index]);
+  // console.log(arr.slice(index));
+  
+}
+console.log(arr[-2]);
+
