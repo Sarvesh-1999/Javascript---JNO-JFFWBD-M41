@@ -837,11 +837,72 @@ function clearDataFromLocalStorage() {
 // let concatinatedArr = arr9.concat(arr10);
 // console.log(concatinatedArr); // [10, 20, 30, 40, 50, 60]
 
-let arr = [1, 2, 3, 4, 5, 6];
-for (let index = -2; index < arr.length; index++) {
-  console.log(index , arr[index]);
-  // console.log(arr.slice(index));
+//! ADVANCE ARRAY METHODS
+
+// //! forEach( callbackFunc ) : used to iterate an array, returns undefined
+// let arr1 = [10, 20, 30, 40, 50];
+
+// let returnVal1 = arr1.forEach((ele, idx, array) => {
+//   console.log(ele, idx, array);
+//   return ele + 5;
+// });
+// console.log(returnVal1); // undefined
+
+// console.log("------------------------------");
+
+// //! map( callbackFunc ) : used to iterate an array, returns new array
+// let returnVal2 = arr1.map((ele, idx, array) => {
+//   console.log(ele, idx, array);
+//   return ele + 5;
+// });
+// console.log(returnVal2); // [15,25,35,45,55]
+
+// //! filter( callbackFunc )
+// let arr2 = [100, 200, 300, 400, 500];
+
+// let returnVal3 = arr2.filter((ele, idx, array) => ele > 200);
+// console.log(returnVal3); // [300,400,500]
+
+// //! find( callbackFunc )
+// let returnVal4 = arr2.find((ele, idx, array) => {
+//   console.log(ele);
+//   return ele > 200;
+// });
+// console.log(returnVal4); // 300
+
+// //! findIndex( callbackFunc )
+// let returnVal5 = arr2.findIndex((ele, idx, array) => {
+//   console.log(ele);
+//   return ele > 200;
+// });
+// console.log(returnVal5); // 2
+
+// //! reduce( callbackFunc , accumulatorValue)
+// let arr3 = [10, 20, 30, 40, 50];
+
+// let sum = arr3.reduce((acc, ele) => acc + ele, 0);
+
+// console.log(sum);
+
+let arr4 = [1, 2, 3, 4, 5];
+//! toString()
+let str1 = arr4.toString();
+console.log(str1); // 1,2,3,4,5
+
+//! join()
+let str2 = arr4.join(" ");
+console.log(str2); // 1 2 3 4 5
+
+//! split()
+let str3 = "Hello"
+console.log(str3.split(""));
+
+
+function pallidrome(word){
+  let output = word.split("").reverse().join("")
+  return output === word ? true : false
   
 }
-console.log(arr[-2]);
+console.log(pallidrome("abc"));
+console.log(pallidrome("racecar"));
 
