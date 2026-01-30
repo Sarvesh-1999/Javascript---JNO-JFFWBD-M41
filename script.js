@@ -884,25 +884,87 @@ function clearDataFromLocalStorage() {
 
 // console.log(sum);
 
-let arr4 = [1, 2, 3, 4, 5];
-//! toString()
-let str1 = arr4.toString();
-console.log(str1); // 1,2,3,4,5
+// let arr4 = [1, 2, 3, 4, 5];
+// //! toString()
+// let str1 = arr4.toString();
+// console.log(str1); // 1,2,3,4,5
 
-//! join()
-let str2 = arr4.join(" ");
-console.log(str2); // 1 2 3 4 5
+// //! join()
+// let str2 = arr4.join(" ");
+// console.log(str2); // 1 2 3 4 5
 
-//! split()
-let str3 = "Hello"
-console.log(str3.split(""));
+// //! split()
+// let str3 = "Hello"
+// console.log(str3.split(""));
 
+// function pallidrome(word){
+//   let output = word.split("").reverse().join("")
+//   return output === word ? true : false
 
-function pallidrome(word){
-  let output = word.split("").reverse().join("")
-  return output === word ? true : false
-  
-}
-console.log(pallidrome("abc"));
-console.log(pallidrome("racecar"));
+// }
+// console.log(pallidrome("abc"));
+// console.log(pallidrome("racecar"));
 
+//! ARRAY DESTRUCTURING
+// let arr1 = [10, 20, 30, 40, 50];
+// let [n1, n2, n3, n4, n5] = arr1;
+// console.log(n2, n5);
+
+// // skip elements while destructuring
+// let arr2 = [100, 200, 300, 400, 500];
+// let [, a1, , , a2] = arr2;
+// console.log(a1, a2);
+
+// // nested array : - 1000,4000,5000
+// let arr3 = [1000, 2000, [3000, 4000], 5000];
+// let [b1, , [, b2], b3] = arr3;
+// console.log(b1, b2, b3);
+
+// let arr4 = ["Hello", { id: 1, fname: "John", lname: "Doe" }];
+// let [str1, { fname }] = arr4;
+// console.log(str1,fname);
+
+//! examples
+// function useState(state) {
+//   return [state, () => {}];
+// }
+// let [state, setState] = useState();
+
+// function useRef(ref) {
+//   return { current: ref };
+// }
+// let { current } = useRef();
+
+// ! REST AND SPREAD OPERATORS : ...variable
+
+// function demo1(p1, p2, ...p3) {
+//   console.log(p1, p2);
+//   console.log(p3); // <- rest parameter [30, 40, 50, 60, 70, 80, 90]
+//   console.log(arguments); // <- array like object, NOT PURE ARRAY
+// }
+// demo1(10, 20, 30, 40, 50, 60, 70, 80, 90);
+
+// let arr1 = [10, 20, 30, 40];
+// let [x1, ...x2] = arr1;
+// console.log(x1);
+// console.log(x2); // [20,30,40] <-- rest : pack
+
+// let arr2 = [100, 200, 300, 400];
+// let arr3 = [...arr2]; // <--- copy elements
+// console.log(...arr3); // <--- spread : unpack
+
+let obj1 = {
+  id: 1,
+  fname: "Jane",
+  sal: 20000,
+  address: { city: "Noida" },
+};
+
+let obj2 = {
+  ...obj1,
+  lname: "Doe",
+  sal: 70000,
+};
+
+console.log(obj1);
+console.log(obj2);
