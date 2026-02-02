@@ -953,18 +953,130 @@ function clearDataFromLocalStorage() {
 // let arr3 = [...arr2]; // <--- copy elements
 // console.log(...arr3); // <--- spread : unpack
 
-let obj1 = {
-  id: 1,
-  fname: "Jane",
-  sal: 20000,
-  address: { city: "Noida" },
-};
+// let obj1 = {
+//   id: 1,
+//   fname: "Jane",
+//   sal: 20000,
+//   address: { city: "Noida" },
+// };
 
-let obj2 = {
-  ...obj1,
-  lname: "Doe",
-  sal: 70000,
-};
+// let obj2 = {
+//   ...obj1,
+//   lname: "Doe",
+//   sal: 70000,
+// };
 
-console.log(obj1);
-console.log(obj2);
+// console.log(obj1);
+// console.log(obj2);
+
+//! STRINGS
+// let str1 = "Hello"
+// let str2 = 'World abc'
+
+// // using backticks we can write multi-line strings and we can do string interpolation ${}
+// let str3 = `Hii ,
+// John Doe ${str1} ${str2}`
+
+// console.log(str1);
+// console.log(str2);
+// console.log(str3);
+
+// //! STRING METHODS
+// let str1 = "Javascript";
+// let description =
+//   "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut ipsum velit aliquam repellendus nihil quas unde atque optio officia blanditiis!";
+
+// //! length property
+// console.log(str1.length); // 10
+// console.log(str1[0]); // J
+
+// //! str.slice(startIndex, endIndex)
+// console.log(str1.slice(0, 4)); // Java
+// console.log(str1.slice(4)); // script
+// console.log(str1.slice(-10, -6)); // Java
+// console.log(str1.slice(-6, 10)); // script
+// console.log(description.slice(0, 50) + "...");
+
+// //! str.substring(startIndex, endIndex) : similar to slice, but do not accept -ve indexs
+// console.log(str1.substring(0, 4)); // Java
+// console.log(str1.substring(-10, -6)); // No output
+
+// // ! str.substr(startIndex , length) : similar to slice, but its 2nd arguement is length
+// console.log(str1.substr(4, 6)); // script
+// console.log(str1.substr(-10, 4)); // Java
+
+// // ! str.replace(searchValue , replaceValue)
+// let str2 = "I love Python , Python has easy learning curve.";
+// console.log(str2.replace("Python", "Javascript")); // I love Javascript , , Python has easy learning curve.
+
+// // ! str.replaceAll(searchValue , replaceValue)
+// console.log(str2.replaceAll("Python", "Javascript")); // I love Javascript , Javascript has easy learning curve.
+
+// let username = "    John Doe     ";
+// console.log(username);
+
+// //! str.trimStart() : Removes the leading white space
+// console.log(username.trimStart());
+
+// //! str.trimEnd() : Removes the trailing white space
+// console.log(username.trimEnd());
+
+// //! str.strtrim() : Removes the leading and trailing white space
+// console.log(username.trim());
+
+// //! str.padEnd(maxLength , fillString)
+// let phoneNo = "9876543210";
+// console.log(phoneNo); // 9876543210
+// console.log(phoneNo.slice(0, 6).padEnd(10, "X")); // 987654XXXX
+
+// //! str.padStart(maxLength , fillString)
+// console.log(phoneNo.slice(6).padStart(10, "X")); // XXXXXX3210
+
+// //! str.charAt()
+// let str4 = "Javascript";
+// console.log(str4.charAt(0)); // J
+
+// //! str.charCodeAt()
+// console.log(str4.charCodeAt(0)); // 74
+// console.log(str4.charCodeAt(1)); // 97
+
+// //! str.toUpperCase()
+// console.log(str4.toUpperCase()); // JAVASCRIPT
+
+// //! str.toLowerCase()
+// console.log(str4.toLowerCase()); // javascript
+
+// //! str.includes()
+// console.log(str4.includes("Javascript")); // true
+
+// //! str.indexOf()
+// console.log(str4.indexOf("a")); // 1
+// console.log(str4.indexOf("b")); // -1
+
+// //! str.split()
+// let str5 = "React is library of Javascript";
+// console.log(str5);
+
+// console.log(str5.split());// ['React is library of Javascript']
+// console.log(str5.split(""));// splits character wise
+// console.log(str5.split(" "));// ['React', 'is', 'library', 'of', 'Javascript']
+// console.log(str5.split("library"));// ['React is ', ' of Javascript']
+
+//! TIMER FUNCTIONS
+
+//! setInterval( callback , intervalTime )
+let intervalID = setInterval(() => {
+  console.log("Hiii");
+}, 2000);
+
+console.log("IntervalID is", intervalID);
+
+//! setTimeout( callback , timeOut )
+setTimeout(() => {
+  console.log("Byee");
+}, 12000);
+
+setTimeout(() => {
+  clearInterval(intervalID);
+  console.log("Interval Stopped");
+}, 8000);
