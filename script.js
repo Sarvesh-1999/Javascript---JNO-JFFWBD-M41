@@ -1064,19 +1064,105 @@ function clearDataFromLocalStorage() {
 
 //! TIMER FUNCTIONS
 
-//! setInterval( callback , intervalTime )
-let intervalID = setInterval(() => {
-  console.log("Hiii");
-}, 2000);
+// //! setInterval( callback , intervalTime )
+// let intervalID = setInterval(() => {
+//   console.log("Hiii");
+// }, 2000);
 
-console.log("IntervalID is", intervalID);
+// console.log("IntervalID is", intervalID);
 
-//! setTimeout( callback , timeOut )
-setTimeout(() => {
-  console.log("Byee");
-}, 12000);
+// //! setTimeout( callback , timeOut )
+// setTimeout(() => {
+//   console.log("Byee");
+// }, 12000);
 
-setTimeout(() => {
-  clearInterval(intervalID);
-  console.log("Interval Stopped");
-}, 8000);
+// setTimeout(() => {
+//   clearInterval(intervalID);
+//   console.log("Interval Stopped");
+// }, 8000);
+
+//! PROMISE
+
+// const p1 = new Promise((resolve, reject) => {
+//   if (10 > 2) {
+//     resolve("Hello World");
+//   } else {
+//     reject("Bye Bye");
+//   }
+// });
+
+// console.log(p1);
+
+// p1.then((data) => {
+//   document.writeln(`<h3>${data}</h3>`);
+// });
+
+// p1.catch((err) => {
+//   document.writeln(`<h3>${err}</h3>`);
+// });
+
+// p1.finally(() => {
+//   console.log("I am finally block");
+// });
+
+//! PROMISE WITH THEN, CATCH AND FINALLY
+// const API_URL = "https://dummyjson.com/todos";
+
+// let p1 = fetch(API_URL);
+// console.log(p1);
+
+// /*
+// Promise{
+// Prototype: [[Promise]],
+// PromiseState : "fullfilled",
+// PromiseResult : Response
+// }
+// */
+
+// p1.then((response) => {
+//   let p2 = response.json();
+//   console.log(p2);
+
+//   p2.then((data) => {
+//     console.log(data.todos);
+//   });
+
+//   p2.catch((err) => {
+//     console.log(err);
+//   });
+// });
+
+// p1.catch((err) => {
+//   console.log(err);
+// });
+
+//! PROMISE WITH ASYNC AND AWAIT
+// const API_URL = "https://dummyjson.com/todos";
+
+// async function getTodos(url) {
+//   try {
+//     let response = await fetch(url);
+//     let data = await response.json();
+//     console.log(data); // {todos: Array(30), total: 254, skip: 0, limit: 30}
+
+//     displayTodos(data.todos); // Array(30)
+//   } catch (err) {
+//     console.log(err);
+//   }
+// }
+// getTodos(API_URL);
+
+// function displayTodos(allTodos) {
+//   console.log(allTodos);
+
+//   allTodos.forEach((ele) => {
+//     let { id, userId, todo, completed } = ele;
+
+//     document.writeln(`
+//       <div class = 'todo'>
+//         <h4>${todo}</h4>
+//         <span>${completed ? "Completed" : "Pending"}</span>
+//       </div>
+//       `);
+//   });
+// }
