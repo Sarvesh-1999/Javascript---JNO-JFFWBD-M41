@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
   </head>
-  <body>
+  <body onload="pageLoad()">
     <h1>Document Object Model ( DOM )</h1>
 
     <h2 id="head2">target me using ID 1</h2>
@@ -14,6 +14,58 @@
     <h3 class="head3">target me using classname 1</h3>
     <h3 class="head3">target me using classname 2</h3>
     <h3 class="head3">target me using classname 3</h3>
+
+    <div>div 1</div>
+    <div>div 2</div>
+    <div>div 3</div>
+
+    <main id="table-container"></main>
+
+    <!-- EVENTS -->
+    <button onclick="singleClick()">single click</button>
+
+    <button ondblclick="doubleClick()">double click</button>
+
+    <button onmouseenter="cursorEnter()">enter</button>
+
+    <button onmouseleave="cursorExit()">leave</button>
+
+    <button onmousemove="cursorMove()">move</button>
+
+    <br /><br />
+
+    <input type="text" onkeydown="keyPressed()" />
+
+    <input type="text" onkeyup="keyReleased()" />
+
+    <input type="text" onchange="inputChanged()" />
+
+    <hr />
+
+    <h3>Form Example 1</h3>
+
+    <form onsubmit="handleForm1(event)">
+      <input type="text" placeholder="Email" id="email" />
+      <br />
+      <input type="text" placeholder="Password" id="password" />
+      <br />
+      <button type="submit">Submit</button>
+    </form>
+
+    <p
+      style="
+        height: 100px;
+        width: 100px;
+        background-color: lightblue;
+        overflow-y: scroll;
+      "
+      onscroll="pageScroll()"
+    >
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam blanditiis
+      officia accusantium at ab laudantium tempora recusandae, sequi eaque
+      consequatur.
+    </p>
+    
 
     <script src="./dom.js"></script>
   </body>
