@@ -209,4 +209,39 @@ h1Tag.addEventListener("click", () => {
   h1Tag.style.backgroundColor = "red";
 });
 
-document.body.append(h1Tag);
+// document.body.append(h1Tag);
+
+const signupForm = document.getElementById("signup-form");
+
+signupForm.addEventListener("submit", (e) => {
+  e.preventDefault();
+
+  const usernameInput = document.getElementById("usernameInput");
+  const emailInput = document.getElementById("emailInput");
+  const passwordInput = document.getElementById("passwordInput");
+
+  const userData = {
+    username: usernameInput.value,
+    email: emailInput.value,
+    password: passwordInput.value,
+  };
+
+  console.log(userData);
+});
+
+// ! RAINBOW TASK
+const divs = document.querySelectorAll("div");
+
+// NodeList[div,div,div,div,...]
+
+divs.forEach((ele) => {
+
+  ele.addEventListener("mouseenter", () => {
+    ele.style.backgroundColor = ele.textContent;
+  });
+
+  ele.addEventListener("mouseleave", () => {
+    ele.style.backgroundColor = "white";
+  });
+
+});
